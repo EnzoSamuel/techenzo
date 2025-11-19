@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/PAra pagina.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Tech Enzo - Optimización de PC</title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #00d2d3;
+            --dark: #0f0c1a;
+            --light: #f5f5f5;
+            --accent: #ff6b6b;
+            --purple: #6c5ce7;
+            --blue: #00d2d3;
+            --gamer-bg: #120f23;
+            --gamer-text: #e0e0e0;
+            --gamer-accent: #00d2d3;
+            --gamer-primary: #6c5ce7;
+            --gamer-secondary: #ff6b6b;
+            --gamer-border: #3a3054;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: -webkit-linear-gradient(90deg, #054c76,#0c192a,#471c3a);background: linear-gradient(90deg, #054c76,#0c192a,#471c3a);
+            color: var(--gamer-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGQyZDMiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHBhdGggZD0iTTEyIDJWMHogTTEyIDI0VjIyeg0KIE0yMiAxMkgyNFogTTIgMTJIMDB6IiBmaWxsPSIjMDBkMmQzIi8+PHBhdGggZD0iTTEyIDhWME0yNCAxMkgxNjdNMTIgMjRWMThNMCAxMkg1IiBzdHJva2U9IiMwMGQyZDMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utb3BhY2l0eT0iMC45Ii8+PC9zdmc+'), crosshair;
+            /* 🚫 CAMBIO CLAVE: Evita la selección de texto en todo el cuerpo por defecto */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Estándar */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-image: url('/1763479475.png'); /* Reemplaza con el link de la imagen */
+            background-size: cover; /* Asegura que la imagen cubra todo el header */
+            background-position: center; /* Centra la imagen */
+            background-color: var(--gamer-bg); /* Color de fondo base (casi negro) */
+            background-blend-mode: multiply; /* Oscurece la imagen para que el texto sea legible */
+            border-radius: 15px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 210, 211, 0.2);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--gamer-primary), var(--gamer-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .profile {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background: rgba(18, 15, 35, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 210, 211, 0.2);
+        }
+        
+        .profile h2 {
+            color: var(--gamer-accent);
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 5px rgba(0, 210, 211, 0.5);
+        }
+        
+        .profile p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .services {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background: rgba(18, 15, 35, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 210, 211, 0.2);
+        }
+        
+        .services h2 {
+            color: var(--gamer-primary);
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+        }
+        
+        .service-list {
+            list-style: none;
+        }
+        
+        .service-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 210, 211, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-item:hover {
+            transform: translateX(5px);
+            background: rgba(0, 210, 211, 0.1);
+            border-color: rgba(0, 210, 211, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 210, 211, 0.2);
+        }
+        
+        .service-icon {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: var(--gamer-accent);
+        }
+        
+        .contact {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(18, 15, 35, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid rgba(0, 210, 211, 0.2);
+        }
+        
+        .contact h2 {
+            color: var(--gamer-secondary);
+            margin-bottom: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            margin-top: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 1px;
+            /* ✅ PERMITE SELECCIÓN en el botón de WhatsApp */
+            -webkit-user-select: auto; 
+            -ms-user-select: auto;
+            user-select: auto;
+        }
+        
+        .whatsapp-btn:hover {
+            background: linear-gradient(to right, #128C7E, #075E54);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .hero-text {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            color: var(--gamer-accent);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 1px;
+        }
+        
+        .highlight {
+            background: linear-gradient(to right, var(--gamer-primary), var(--gamer-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .feature-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 210, 211, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--gamer-accent);
+            box-shadow: 0 10px 25px rgba(0, 210, 211, 0.2);
+        }
+        
+        .feature-title {
+            color: var(--gamer-accent);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-family: 'Courier New', Courier, monospace;
+            /* ✅ PERMITE SELECCIÓN en el enlace de WhatsApp */
+            -webkit-user-select: auto; 
+            -ms-user-select: auto;
+            user-select: auto;
+        }
+        
+        .whatsapp-link:hover {
+            color: #128C7E;
+            text-decoration: underline;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF; /* Más blanco */
+            font-weight: bold; /* ¡Este es el cambio clave para el grosor! */
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .remote-badge {
+            background: linear-gradient(to right, #6c5ce7, #a55eea);
+        }
+        
+        .presencial-badge {
+            background: linear-gradient(to right, #006064, #007991);
+        }
+        
+        .anydesk-badge {
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+        }
+        
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tech-icon {
+            font-size: 2rem;
+            color: var(--gamer-accent);
+            transition: all 0.3s ease;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .tech-icon:hover {
+            transform: scale(1.2) rotate(15deg);
+            color: var(--gamer-primary);
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--gamer-accent);
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        /* Scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(18, 15, 35, 0.5);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--gamer-primary), var(--gamer-accent));
+            border-radius: 10px;
+            border: 2px solid rgba(18, 15, 35, 0.5);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, var(--gamer-accent), var(--gamer-primary));
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px rgba(0, 210, 211, 0.7);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Estilos para el formulario (eliminado según solicitud) */
+        .message-form {
+            display: none;
+        }
+        
+        /* Efecto de brillo en los botones */
+        button:hover,
+        .whatsapp-btn:hover {
+            box-shadow: 0 0 20px rgba(0, 210, 211, 0.5);
+        }
+        
+        /* Estilo de texto gamer */
+        .gamer-text {
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(0, 210, 211, 0.5);
+        }
+        
+        
+        /* Estilos adicionales para el diseño gamer */
+        .gamer-section {
+            background: rgba(18, 15, 35, 0.7);
+            border: 1px solid rgba(0, 210, 211, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+        
+        .gamer-header {
+            color: var(--gamer-accent);
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 5px rgba(0, 210, 211, 0.5);
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .gamer-subheader {
+            color: var(--gamer-primary);
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .gamer-button {
+            background: linear-gradient(to right, var(--gamer-primary), var(--gamer-accent));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 1px;
+            border: none;
+        }
+        
+        .gamer-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+        }
+        
+        /* Estilos para el footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #aaa;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 210, 211, 0.2);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        /* Media queries para dispositivos móviles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .profile, .services, .contact {
+                padding: 20px;
+            }
+            
+            .service-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .service-icon {
+                margin-bottom: 5px;
+            }
+            
+            .hero-text {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* 🚫 RESTRICCIONES DE SUBRAYADO GENERALES */
+        /* Quita el subrayado a todos los enlaces que NO sean de WhatsApp */
+        a:not(.whatsapp-btn):not(.whatsapp-link) {
+            text-decoration: none !important;
+        }
+        /* Asegura que el resto del texto no tenga subrayado por si acaso */
+        p, span, h1, h2, h3, li, strong {
+            text-decoration: none !important;
+        }
+
+        /* ✅ PERMITE EL SUBRAYADO SOLO EN EL ENLACE DEL FOOTER AL HACER HOVER (OPCIONAL) */
+        .whatsapp-link:hover {
+            text-decoration: underline !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="fade-in">
+            <h1>Tech Enzo</h1>
+            <p class="subtitle">Optimización y mejora de tu PC o Notebook</p>
+        </header>
+        
+        <div class="profile fade-in">
+            <h2 class="gamer-header">¿Quién soy?</h2>
+            <p>Hola, soy Enzo. Me dedico a acelerar y mejorar el rendimiento de PCs y notebooks, tanto para uso personal como profesional.</p>
+            <p>Mi objetivo es que tu equipo funcione al máximo sin necesidad de cambiar hardware. Trabajo con pasión y dedicación para que tengas la mejor experiencia posible con tu computadora.</p>
+        </div>
+        
+        <div class="services fade-in">
+            <h2 class="gamer-header">¿Qué hago?</h2>
+            <ul class="service-list">
+                <li class="service-item">
+                    <span class="service-icon">💻</span>
+                    <span><strong>Optimización completa</strong> de tu PC o notebook para que funcione más rápido y eficiente</span>
+                </li>
+                <li class="service-item">
+                    <span class="service-icon">🌐</span>
+                    <span><strong>Trabajo remoto 100%</strong> utilizando Anydesk, también presencial según zona</span>
+                </li>
+                <li class="service-item">
+                    <span class="service-icon">🚀</span>
+                    <span><strong>Instalación de programas esenciales</strong> y activación de Windows 10/11</span>
+                </li>
+                <li class="service-item">
+                    <span class="service-icon">🔧</span>
+                    <span><strong>Solución de problemas</strong> de rendimiento, lentitud y errores comunes</span>
+                </li>
+                <li class="service-item">
+                    <span class="service-icon">🎮</span>
+                    <span><strong>Ideal para gamers, creadores y oficina</strong> - optimizo para cada tipo de uso</span>
+                </li>
+                <li class="service-item">
+                    <span class="service-icon">💬</span>
+                    <span><strong>Todo se coordina por WhatsApp</strong> - comunicación directa y rápida</span>
+                </li>
+            </ul>
+            
+            <div class="tech-icons">
+                <div class="tech-icon">💻</div>
+                <div class="tech-icon">🖥️</div>
+                <div class="tech-icon">⚡</div>
+                <div class="tech-icon">🔧</div>
+                <div class="tech-icon">📱</div>
+                <div class="tech-icon">🌐</div>
+            </div>
+            
+            <div class="feature-box">
+                <h3 class="feature-title">Características principales</h3>
+                <p><span class="badge remote-badge">Remoto</span> <span class="badge presencial-badge">Presencial</span> <span class="badge anydesk-badge">Anydesk</span></p>
+                <p><strong>¡NO TE TENÉS QUE MOVER DE TU CASA!</strong> Servicios completamente remotos mediante Anydesk, lo que significa que puedo ayudarte desde cualquier lugar. También realizo servicios presenciales dependiendo de la zona geográfica.</p>                <p>La comunicación y coordinación de todos los servicios se realiza exclusivamente por WhatsApp, para mayor comodidad y rapidez en la atención.</p>
+            </div>
+        </div>
+        
+        <div class="contact fade-in">
+            <h2 class="gamer-header">¡Contactáme hoy mismo!</h2>
+            <p class="hero-text">Tu PC más rápida sin cambiar hardware</p>
+            <p>Consulta gratis tu optimización y descubri cómo puedo ayudarte a mejorar el rendimiento de tu computadora.</p>
+            
+            <a href="https://wa.me/541126957593" class="whatsapp-btn pulse" target="_blank">
+                <i class="fab fa-whatsapp whatsapp-icon"></i> Consulta Gratis por WhatsApp
+            </a>
+            
+            <div class="quote">
+                "Tu PC puede funcionar mucho mejor de lo que crees. ¡Dejame mostrarte cómo!"
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Tech Enzo - Optimización de PC y Notebook</p>
+            <p>Para consultas: <a href="https://wa.me/541126957593" class="whatsapp-link" target="_blank">WhatsApp 11 2695-7593</a></p>        </div>
+    </div>
+
+    <script>
+        // --- 🚫 INICIO DE BLOQUEO DE FUNCIONALIDAD Y COPIADO ---
+
+        // 1. Bloquea el menú contextual (clic derecho)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // 2. Bloquea las teclas de las herramientas de desarrollador y copiar
+        document.addEventListener('keydown', function(e) {
+            // F12
+            if (e.keyCode === 123) {
+                e.preventDefault();
+            }
+            // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+Shift+K (Windows/Linux)
+            if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67 || e.keyCode === 75)) {
+                e.preventDefault();
+            }
+            // Command+Option+I (Mac)
+            if (e.metaKey && e.altKey && e.keyCode === 73) {
+                e.preventDefault();
+            }
+            // Bloquea Ctrl+C o Command+C (Copiar)
+            if ((e.ctrlKey || e.metaKey) && e.keyCode === 67) {
+                e.preventDefault();
+            }
+        });
+
+        // --- FIN DE BLOQUEO DE FUNCIONALIDAD Y COPIADO ---
+
+
+        // Animación de entrada para elementos
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+        
+        // Efecto hover en los botones
+        const buttons = document.querySelectorAll('button, .whatsapp-btn');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Efecto de pulsación en el botón de WhatsApp
+        const whatsappBtn = document.querySelector('.whatsapp-btn');
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('click', function(e) {
+            });
+        }
+        
+        // 💬 NUEVO CURSOR HOVER: Simplificado a 'pointer' para elegancia y compatibilidad
+        document.querySelectorAll('button, a, .service-item').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                // Muestra la mano para indicar clickeable, SÓLO si es un enlace o botón
+                if (element.tagName === 'A' || element.tagName === 'BUTTON' || element.classList.contains('service-item')) {
+                    this.style.cursor = 'pointer'; 
+                }
+            });
+
+            element.addEventListener('mouseleave', function() {
+                // Vuelve al cursor definido en el CSS (el crosshair)
+                this.style.cursor = ''; 
+            });
+        });
+
+        // Añadir efecto de brillo cuando el mouse pasa sobre los elementos
+        document.querySelectorAll('.service-item, .feature-box, .whatsapp-btn').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 0 20px rgba(0, 210, 211, 0.5)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                // Mantenemos el box-shadow original de cada elemento si es diferente
+                if (element.classList.contains('whatsapp-btn')) {
+                    this.style.boxShadow = '0 4px 15px rgba(37, 211, 102, 0.4)';
+                } else if (element.classList.contains('service-item')) {
+                     this.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.2)';
+                } else if (element.classList.contains('feature-box')) {
+                    this.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.2)';
+                } else {
+                    this.style.boxShadow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
