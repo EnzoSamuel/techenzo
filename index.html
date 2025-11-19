@@ -60,9 +60,14 @@
         header {
             text-align: center;
             padding: 40px 20px;
-            background-image: url('/1763479475.png'); /* Reemplaza con el link de la imagen */
-            background-size: cover; /* Asegura que la imagen cubra todo el header */
-            background-position: center; /* Centra la imagen */
+            /* ✅ Usa el link completo y raw de GitHub */
+            background-image: url('https://github.com/EnzoSamuel/techenzo/blob/main/1763479475.png?raw=true'); 
+            background-size: cover; 
+            background-position: center; 
+            /* ✅ VUELVE A AÑADIR ESTAS LÍNEAS PARA EL EFECTO OSCURO/BLURRY */
+            background-color: var(--gamer-bg); 
+            background-blend-mode: multiply; 
+            /* ------------------------------------------------------------- */
             border-radius: 15px;
             margin-bottom: 30px;
             backdrop-filter: blur(10px);
@@ -85,7 +90,7 @@
         
         .subtitle {
             font-size: 1.2rem;
-            color: #fff;
+            color: #fff; /* Blanco puro */
             margin-bottom: 20px;
             font-family: 'Courier New', Courier, monospace;
         }
@@ -690,5 +695,6 @@
 </body>
 
 </html>
+
 
 
