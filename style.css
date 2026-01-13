@@ -1,0 +1,759 @@
+:root {
+  --primary: #6c5ce7;
+  --secondary: #00d2d3;
+  --dark: #0f0c1a;
+  --light: #f5f5f5;
+  --accent: #ff6b6b;
+  --purple: #6c5ce7;
+  --blue: #00d2d3;
+  --gamer-bg: #120f23;
+  --gamer-text: #e0e0e0;
+  --gamer-accent: #00d2d3;
+  --gamer-primary: #6c5ce7;
+  --gamer-secondary: #ff6b6b;
+  --gamer-border: #3a3054;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(90deg, #054c76, #0c192a, #471c3a);
+  color: var(--gamer-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Loading Screen Styles */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--gamer-bg), #0c091a);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.dino-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+.dino {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 100px;
+  background: var(--gamer-accent);
+  border-radius: 10px 10px 40px 40px;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dino::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  width: 60px;
+  height: 40px;
+  background: var(--gamer-accent);
+  border-radius: 50% 50% 0 0;
+}
+
+.dino::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: -20px;
+  width: 30px;
+  height: 15px;
+  background: var(--gamer-accent);
+  border-radius: 50%;
+}
+
+.dino-eye {
+  position: absolute;
+  top: -12px;
+  left: 25px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.dino-eye::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: var(--gamer-border);
+  border-radius: 10px;
+}
+
+.loading-text {
+  font-family: 'Courier New', monospace;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--gamer-accent);
+  text-shadow: 0 0 10px rgba(0, 210, 213, 0.7);
+  letter-spacing: 2px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 300px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(
+    to right,
+    var(--gamer-primary),
+    var(--gamer-accent)
+  );
+  border-radius: 5px;
+  animation: load 3s ease-in-out;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-30px);
+  }
+}
+
+@keyframes load {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loading-particles {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--gamer-accent);
+  border-radius: 50%;
+  animation: float 3s infinite ease-in-out;
+  opacity: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.loaded .container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(rgba(18, 15, 35, 0.85), rgba(18, 15, 35, 0.85)),
+    url('https://enzosamuel.github.io/techenzo/1763479475.png') center/cover
+      no-repeat;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 210, 211, 0.2);
+  animation: fadeIn 1s ease-out;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  background: linear-gradient(
+    to right,
+    var(--gamer-primary),
+    var(--gamer-accent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.profile {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  padding: 30px;
+  background: rgba(18, 15, 35, 0.7);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 210, 211, 0.2);
+  animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.profile h2 {
+  color: var(--gamer-accent);
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 0 0 5px rgba(0, 210, 211, 0.5);
+}
+
+.profile p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.services {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  padding: 30px;
+  background: rgba(18, 15, 35, 0.7);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 210, 211, 0.2);
+  animation: fadeIn 1s ease-out 0.4s both;
+}
+
+.services h2 {
+  color: var(--gamer-primary);
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+}
+
+.service-list {
+  list-style: none;
+}
+
+.service-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 210, 211, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.service-item:hover {
+  transform: translateX(5px);
+  background: rgba(0, 210, 211, 0.1);
+  border-color: rgba(0, 210, 211, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 210, 211, 0.2);
+}
+
+.service-icon {
+  margin-right: 15px;
+  font-size: 1.5rem;
+  color: var(--gamer-accent);
+}
+
+.contact {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(18, 15, 35, 0.7);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  border: 1px solid rgba(0, 210, 211, 0.2);
+  animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.contact h2 {
+  color: var(--gamer-secondary);
+  margin-bottom: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(to right, #25d366, #128c7e);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  margin-top: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 1px;
+  -webkit-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+.whatsapp-btn:hover {
+  background: linear-gradient(to right, #128c7e, #075e54);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.hero-text {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+  color: var(--gamer-accent);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  background: linear-gradient(
+    to right,
+    var(--gamer-primary),
+    var(--gamer-accent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.feature-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 210, 211, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--gamer-accent);
+  box-shadow: 0 10px 25px rgba(0, 210, 211, 0.2);
+}
+
+.feature-title {
+  color: var(--gamer-accent);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.whatsapp-link {
+  color: #25d366;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  font-family: 'Courier New', Courier, monospace;
+  -webkit-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+.whatsapp-link:hover {
+  color: #128c7e;
+  text-decoration: underline;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.remote-badge {
+  background: linear-gradient(to right, #6c5ce7, #a55eea);
+}
+
+.presencial-badge {
+  background: linear-gradient(to right, #006064, #007991);
+}
+
+.anydesk-badge {
+  background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+}
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.tech-icon {
+  font-size: 2rem;
+  color: var(--gamer-accent);
+  transition: all 0.3s ease;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2) rotate(15deg);
+  color: var(--gamer-primary);
+}
+
+.quote {
+  font-style: italic;
+  text-align: center;
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid var(--gamer-accent);
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 15, 35, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--gamer-primary),
+    var(--gamer-accent)
+  );
+  border-radius: 10px;
+  border: 2px solid rgba(18, 15, 35, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    var(--gamer-accent),
+    var(--gamer-primary)
+  );
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.glow {
+  text-shadow: 0 0 10px rgba(0, 210, 211, 0.7);
+}
+
+/* Estilos para el footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #aaa;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(0, 210, 211, 0.2);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .profile,
+  .services,
+  .contact {
+    padding: 20px;
+  }
+
+  .service-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-icon {
+    margin-bottom: 5px;
+  }
+
+  .hero-text {
+    font-size: 1.5rem;
+  }
+
+  .dino-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .dino {
+    width: 60px;
+    height: 80px;
+  }
+
+  .dino::before {
+    top: -15px;
+    left: 8px;
+    width: 45px;
+    height: 30px;
+  }
+
+  .dino::after {
+    top: 8px;
+    width: 25px;
+    height: 12px;
+  }
+
+  .dino-eye {
+    top: -10px;
+    left: 20px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .dino-eye::after {
+    top: 2px;
+    left: 2px;
+    width: 4px;
+    height: 4px;
+  }
+
+  .loading-text {
+    font-size: 1.4rem;
+  }
+
+  .progress-bar {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-text {
+    font-size: 1.3rem;
+  }
+
+  .whatsapp-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .dino-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .dino {
+    width: 50px;
+    height: 65px;
+  }
+
+  .loading-text {
+    font-size: 1.2rem;
+  }
+
+  .progress-bar {
+    width: 200px;
+  }
+}
+
+/* Efectos de optimización */
+.epic-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 210, 211, 0.2) 0%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  z-index: -1;
+  animation: moveGlow 15s infinite alternate;
+}
+
+.epic-glow:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.epic-glow:nth-child(2) {
+  bottom: 10%;
+  right: 10%;
+  animation-delay: -5s;
+}
+
+@keyframes moveGlow {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(20px, 20px);
+  }
+}
+
+/* Cursor personalizado */
+body {
+  cursor: crosshair;
+}
+
+a,
+button,
+.service-item {
+  cursor: pointer !important;
+}
+
+/* Performance: Imágenes optimizadas */
+img {
+  max-width: 100%;
+  height: auto;
+}
